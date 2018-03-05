@@ -41,8 +41,21 @@ function displayGIFs() {
 		$("#gifs").append(gif);
 		for (i = 0; i < response.data.length; i++) {
 			var gifImage = $("<div>");
-			gifImage.html('<img src="' + response.data[i].images["480w_still"].url + '" alt="loading" title="loading"/></br>');
+			gifImage.html('<img id="gif-image" src="' + response.data[i].images["480w_still"].url + '" alt="loading" title="loading"/></br>');
 			var rating = $("<div>");
+
+			var animated = false;
+			$("#gif-image").on("click", function() {
+				if (animated === false) {
+					console.log(gifImage);
+					$("#gif-image").html('<img id="gif-image" src="' + response.data[i].images.downsized.url + '" alt="loading" title="loading"/></br>')
+					animated = true;
+				} else if (animated === true) {
+					$("#gif-image").html('<img id="gif-image" src="' + response.data[i].images["480w_still"].url + '" alt="loading" title="loading"/></br>');
+					animated = false;
+				}
+			})
+
 			rating.html('Rating: ' + response.data[i].rating.toUpperCase() + "<br><br>");
 			gif.append(gifImage);
 			gif.append(rating);
@@ -51,6 +64,8 @@ function displayGIFs() {
 	});
 
 }
+
+
 
 $(document).on("click", "#new-button", displayGIFs);
 
