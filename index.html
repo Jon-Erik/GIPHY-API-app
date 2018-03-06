@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>GIPHY API Project</title>
+	<title>Find any GIF!</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body class="container">
 	<div class="jumbotron">
-		<div class="display-4">GIPHY API Project</div>
-		<div class="lead">Find gifs using the GIPHY API software</div>
+		<div class="display-4 text-center">Find any GIF!</div>
+		<div class="lead text-center">Find gifs using the GIPHY API software</div>
 	</div>
-	<div id="api-buttons"></div>
+	<div class="card">
+		<div class="card-header">Click a button to find some GIFs!</div>
+		<div class="card-body">
+			<div id="api-buttons"></div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header">Add a button here!</div>
+		<div class="card-body">
+			<form>
+				<input id="button-input" type="text" name="">
+				<button class="btn" id="submit">Submit</button>
+			</form>
+		</div>
+	</div>
 	<div id="gifs"></div>
-	<form>
-		<p>Add a button</p>
-		<input id="button-input" type="text" name=""></form><br>
-		<button class="btn" id="submit">Submit</button>
-	</form>
-	<!--<img src="https://media3.giphy.com/media/Qnp9zwcmaCPv2/giphy-downsized.gif" alt="loading" title="loading"/>-->
 <script type="text/javascript" src="giphy.js"></script>
 </body>
 </html>

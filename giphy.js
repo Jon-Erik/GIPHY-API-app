@@ -37,35 +37,35 @@ function displayGIFs() {
 	}).then(function(response) {
 		console.log(response);
 		$("#gifs").empty();
-		var gif = $("<div>");
-		$("#gifs").append(gif);
 		for (i = 0; i < response.data.length; i++) {
-			var gifImage = $("<div>");
-			gifImage.html('<img id="gif-image" src="' + response.data[i].images["480w_still"].url + '" alt="loading" title="loading"/></br>');
+			var gifImage = $("<img class='gif'>");
+			gifImage.attr('src', response.data[i].images.downsized_still.url);
+			gifImage.attr('data-still', response.data[i].images.downsized_still.url);
+			gifImage.attr('data-animated', response.data[i].images.downsized.url);
+			gifImage.attr('data-state', 'still');
+			
 			var rating = $("<div>");
+			rating.html('Rating: ' + response.data[i].rating.toUpperCase() + "<br><br>");
+			$("#gifs").append(gifImage);
+			$("#gifs").append(rating);
+		}
 
-			var animated = false;
-			$("#gif-image").on("click", function() {
-				if (animated === false) {
-					console.log(gifImage);
-					$("#gif-image").html('<img id="gif-image" src="' + response.data[i].images.downsized.url + '" alt="loading" title="loading"/></br>')
-					animated = true;
-				} else if (animated === true) {
-					$("#gif-image").html('<img id="gif-image" src="' + response.data[i].images["480w_still"].url + '" alt="loading" title="loading"/></br>');
-					animated = false;
+			$(".gif").on("click", function() {
+				
+				var state = $(this).attr("data-state");
+				
+				if (state === 'still') {
+					$(this).attr('src', $(this).attr('data-animated'));
+					$(this).attr('data-state', 'animated');
+				} else {
+					$(this).attr("src", $(this).attr("data-still"));
+					$(this).attr('data-state', 'still');
 				}
 			})
-
-			rating.html('Rating: ' + response.data[i].rating.toUpperCase() + "<br><br>");
-			gif.append(gifImage);
-			gif.append(rating);
-		}
 		
 	});
 
 }
-
-
 
 $(document).on("click", "#new-button", displayGIFs);
 

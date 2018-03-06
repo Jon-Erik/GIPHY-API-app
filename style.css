@@ -1,11 +1,15 @@
-.display-4 {
-
+.container {
+	width: 120%;
 }
 
 #new-button {
 	margin: 0px 10px 10px 0px;
 }
 
+.card {
+	margin-bottom: 15px;
+}
+
 img {
-	max-width: 250px;
+	
 }
