@@ -25,6 +25,10 @@ $("#submit").on("click", function() {
 	$("#button-input").val("");
 });
 
+$("#clear-results").on("click", function() {
+	$("#gifs").empty();
+});
+
 function displayGIFs() {
 	var buttonName = $(this).attr("name");
 	console.log(buttonName);
