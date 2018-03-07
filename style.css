@@ -10,8 +10,17 @@
 	margin-bottom: 15px;
 }
 
-img {
-	
+.jumbotron {
+	background-image: url("dust_scratches.png");
+}
+
+.display-4 {
+	font-weight: bold;
+	color: #1C75CE ;
+}
+
+.card-header {
+	background: #DBEAFA;
 }
 
 input {
@@ -19,6 +28,10 @@ input {
 	margin-bottom: 15px;
 }
 
-#clear-results {
-	margin-top: 15px;
+#clear-results, #submit {
+	margin: 10px 10px 0 0;
+}
+
+button {
+	background-color: #A4CCF3;
 }
