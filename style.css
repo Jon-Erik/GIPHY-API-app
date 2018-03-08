@@ -6,10 +6,6 @@
 	margin: 0px 10px 10px 0px;
 }
 
-.card {
-	margin-bottom: 15px;
-}
-
 .jumbotron {
 	background-image: url("dust_scratches.png");
 }
@@ -35,3 +31,23 @@ input {
 button {
 	background-color: #A4CCF3;
 }
+
+#input-card {
+	height: 100%;
+
+}
+
+#display-card {
+	margin-top: 15px;
+}
+
+@media screen and (max-width: 576px) {
+	#display-card {
+		margin-top: 30px;
+	}
+
+	#input-card {
+		margin-top: 15px;	
+	}
+}
+
