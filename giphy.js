@@ -5,6 +5,7 @@ var musicalInstruments = ["piccolo", "flute", "oboe", "english horn",
 						  "trombone", "tuba", "timpani", "violin", "viola",
 						  "cello", "double bass"];
 
+//creates new buttons based on the array
 function createButtons() {
 	$("#api-buttons").empty();
 	for (i = 0; i < musicalInstruments.length; i++) {
@@ -15,6 +16,7 @@ function createButtons() {
 	}
 }
 
+//takes user input, adds to array, and creates buttons based on updated array
 $("#submit").on("click", function() {
 	event.preventDefault();
 	var input = $("#button-input").val().trim();
@@ -25,16 +27,19 @@ $("#submit").on("click", function() {
 	$("#button-input").val("");
 });
 
+//clears any displaying gifs
 $("#clear-results").on("click", function() {
 	$("#gifs").empty();
 });
 
 function displayGIFs() {
 	var buttonName = $(this).attr("name");
-	console.log(buttonName);
+	//console.log(buttonName);
 
+	//Takes the name attribute of the button (same as displaying name), and puts it into the the query URL for the api call
 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + buttonName + "&api_key=yFIvDL56RXCgLx9oqZXU1GSTTFg1qAXC&limit=10"
 
+	//ajax request is submitted with the URL
 	$.ajax({
 		url: queryURL,
 		method: "GET"
@@ -53,7 +58,7 @@ function displayGIFs() {
 			$("#gifs").append(gifImage);
 			$("#gifs").append(rating);
 		}
-
+			//Three attributes are added to every gif added to the page: a src, the url for the still gif, and a url for the animated gif. On click, the src is changed to either the still or animated urls to start and stop the gifs from animating
 			$(".gif").on("click", function() {
 				
 				var state = $(this).attr("data-state");
